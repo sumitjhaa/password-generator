@@ -15,9 +15,9 @@ function App() {
 	const [strength, setStrength] = useState(0);
 	const [isDark, setIsDark] = useState(true);
 
-	const passwordRef = useRef(null);
+	const passwordRef = useRef<HTMLInputElement | null>(null);
 
-	const calculateStrength = useCallback((pass) => {
+	const calculateStrength = useCallback((pass: string): number => {
 		let score = 0;
 
 		if (pass.length >= 8) score += 1;
@@ -420,7 +420,7 @@ function App() {
 								<div className="space-y-3">
 									<h3 className={`text-lg lg:text-xl font-bold ${isDark ? 'text-gray-200' : 'text-gray-800'}`}>Character Types</h3>
 									<div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-										<										label className={`glass-card flex items-center gap-3 p-4 rounded-xl cursor-pointer transition-all border-2 hover:scale-[1.02] ${isDark
+										<label className={`glass-card flex items-center gap-3 p-4 rounded-xl cursor-pointer transition-all border-2 hover:scale-[1.02] ${isDark
 											? 'border-gray-700 hover:border-gray-600'
 											: 'border-gray-200 hover:border-purple-300'
 											}`}>
